@@ -1,0 +1,13 @@
+prefix: '&7[&eBlastAdmin&7] &r'
+
+error:
+  console: '&4このコマンドはコンソールから実行できません。'
+  no-permission: '&4あなたは権限を持っていません。'
+  usage:
+    command: '&7- &bコマンド: &7{0}'
+    description: '&7- &b説明: &7{0}'
+    usage: '&7- &b使い方: &7{0}'
+help:
+  header: '&7------- [&e BlastAdmin &7] -------'
+  help: '&7- &b/blastadmin &f- &7BlastAdminのコマンドを表示します。'
+  tp: '&7- &b/tp <player> | /tp <player> <player> &f- &7TPコマンドです。'

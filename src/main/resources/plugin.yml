@@ -1,0 +1,23 @@
+name: BlastAdmin
+version: 1.0.0
+author: hayatarou_
+
+main: com.github.tckz916.blastadmin.BlastAdmin
+
+commands:
+  blastadmin:
+    description: Help Command
+  tp:
+    description: Tp Command
+permissions:
+  blastadmin.admin:
+    description:
+    default: op
+    children:
+      blastadmin.command.help: true
+      blastadmin.command.tp: true
+  blastadmin.command.help:
+    default: op
+  blastadmin.command.tp:
+    default: op
+
