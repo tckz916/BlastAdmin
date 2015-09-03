@@ -12,7 +12,7 @@ public class HelpCommand extends BaseCommand {
 
     private BlastAdmin plugin = BlastAdmin.getInstance();
 
-    public static final String NAME = "Help";
+    public static final String NAME = "help";
 
     public static final String DESCRIPTION = "Help Command";
 

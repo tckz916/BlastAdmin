@@ -32,6 +32,7 @@ public class BlastAdmin extends JavaPlugin {
 
         registercommand("blastadmin", new BlastAdminCommandHandler());
         registercommand("tp", new BlastAdminCommandHandler());
+        registercommand("tphere", new BlastAdminCommandHandler());
     }
 
     @Override

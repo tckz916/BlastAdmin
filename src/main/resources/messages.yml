@@ -10,4 +10,5 @@ error:
 help:
   header: '&7------- [&e BlastAdmin &7] -------'
   help: '&7- &b/blastadmin &f- &7BlastAdminのコマンドを表示します。'
-  tp: '&7- &b/tp <player> | /tp <player> <player> &f- &7TPコマンドです。'
+  tp: '&7- &b/tp &f- &7Teleportコマンドです。'
+  tphere: '&7- &b/tphere &f- &7Teleportコマンドです。'
