@@ -2,7 +2,6 @@ package com.github.tckz916.blastadmin;
 
 import com.github.tckz916.blastadmin.message.Message;
 import com.github.tckz916.blastadmin.message.MessageFormat;
-import com.github.tckz916.blastadmin.util.Util;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,8 +17,6 @@ public class BlastAdmin extends JavaPlugin {
 
     private MessageFormat messageFormat = null;
 
-    private Util util = null;
-
     @Override
     public void onEnable() {
         super.onEnable();
@@ -28,7 +25,6 @@ public class BlastAdmin extends JavaPlugin {
 
         message = new Message();
         messageFormat = new MessageFormat();
-        util = new Util();
 
         registercommand("blastadmin", new BlastAdminCommandHandler());
         registercommand("tp", new BlastAdminCommandHandler());
@@ -55,10 +51,6 @@ public class BlastAdmin extends JavaPlugin {
 
     public MessageFormat getMessageFormat() {
         return messageFormat;
-    }
-
-    public Util getUtil() {
-        return util;
     }
 
     public static BlastAdmin getInstance() {
