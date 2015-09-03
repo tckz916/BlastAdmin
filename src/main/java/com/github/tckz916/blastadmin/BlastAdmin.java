@@ -1,5 +1,6 @@
 package com.github.tckz916.blastadmin;
 
+import com.github.tckz916.blastadmin.listener.PlayerListener;
 import com.github.tckz916.blastadmin.message.Message;
 import com.github.tckz916.blastadmin.message.MessageFormat;
 import org.bukkit.event.Listener;
@@ -30,10 +31,13 @@ public class BlastAdmin extends JavaPlugin {
 
         registercommand("blastadmin");
         registercommand("tp");
+        registercommand("tpa");
         registercommand("tphere");
         registercommand("whois");
         registercommand("tell");
         registercommand("reply");
+
+        registerlistener(new PlayerListener());
     }
 
     @Override

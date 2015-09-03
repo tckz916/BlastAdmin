@@ -9,19 +9,20 @@ import org.bukkit.entity.Player;
 /**
  * Created by tckz916 on 2015/09/03.
  */
-public class TeleportHereCommand extends BaseCommand {
+public class TeleportAllCommand extends BaseCommand {
 
     private BlastAdmin plugin = BlastAdmin.getInstance();
 
-    public static final String NAME = "tphere";
+    public static final String NAME = "tpa";
 
     public static final String PERMISSION = "blastadmin.command.tp";
 
     public static final String DESCRIPTION = "Teleport Command";
 
-    public static final String USAGE = "/tphere <player>";
+    public static final String USAGE = "\n/tpa" +
+            "\n/tpa <player>";
 
-    public TeleportHereCommand(CommandSender sender) {
+    public TeleportAllCommand(CommandSender sender) {
         super(sender, NAME, PERMISSION, DESCRIPTION, USAGE);
     }
 
@@ -40,23 +41,39 @@ public class TeleportHereCommand extends BaseCommand {
             plugin.getMessage().sendmessage(sender, format(false, "error.console"));
             return;
         }
-        if (args.length < 1 || args.length > 2) {
+        if (args.length > 2) {
             sendUsage();
             return;
         }
-
         Player player = (Player) sender;
-        Player target = Bukkit.getPlayer(args[0]);
-        if (target == null) {
-            plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
-            return;
+        String message = null;
+
+        switch (args.length) {
+            case 0:
+                for (Player players : Bukkit.getServer().getOnlinePlayers()) {
+                    players.teleport(player);
+                }
+                message = format("teleport.message")
+                        .replace("%from%", "OnlinePlayers")
+                        .replace("%to%", player.getDisplayName());
+                plugin.getMessage().broadcastmessage(false, message);
+                break;
+            case 1:
+                Player target = Bukkit.getPlayer(args[0]);
+                if (target == null) {
+                    plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
+                    return;
+                }
+                for (Player players : Bukkit.getServer().getOnlinePlayers()) {
+                    players.teleport(target);
+                }
+                message = format("teleport.message")
+                        .replace("%from%", "OnlinePlayers")
+                        .replace("%to%", target.getDisplayName());
+
+                plugin.getMessage().broadcastmessage(false, message);
+                break;
         }
-        target.teleport(player);
-        String message = format("teleport.message")
-                .replace("%from%", target.getDisplayName())
-                .replace("%to%", player.getDisplayName());
-        plugin.getMessage().sendmessage(player, message);
-        plugin.getMessage().sendmessage(target, message);
     }
 
     private String format(boolean prefix, String key, Object... args) {

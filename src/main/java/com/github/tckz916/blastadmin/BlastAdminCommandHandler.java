@@ -22,17 +22,20 @@ public class BlastAdminCommandHandler implements CommandExecutor {
             case "tp":
                 cmd = new TeleportCommand(sender);
                 break;
+            case "tpa":
+                cmd = new TeleportAllCommand(sender);
+                break;
             case "tphere":
                 cmd = new TeleportHereCommand(sender);
-                break;
-            case "whois":
-                cmd = new WhoisCommand(sender);
                 break;
             case "tell":
                 cmd = new PrivateMessageCommand(sender);
                 break;
             case "reply":
                 cmd = new ReplyCommand(sender);
+                break;
+            case "whois":
+                cmd = new WhoisCommand(sender);
                 break;
         }
 

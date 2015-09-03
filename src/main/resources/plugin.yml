@@ -9,16 +9,18 @@ commands:
     description: Help Command
   tp:
     description: Teleport Command
+  tpa:
+    description: Teleport Command
   tphere:
     description: Teleport Command
-  whois:
-    description: Whois Command
   tell:
     description: PrivateMessage Command
     aliases: [whispers,w,pm,msg]
   reply:
     description: PrivateMessage Command
     aliases: r
+  whois:
+    description: Whois Command
 permissions:
   blastadmin.admin:
     description:

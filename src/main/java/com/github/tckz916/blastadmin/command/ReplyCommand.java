@@ -36,7 +36,6 @@ public class ReplyCommand extends BaseCommand {
             plugin.getMessage().sendmessage(sender, format(false, "error.console"));
             return;
         }
-
         if (isSenderRemoteConsole()) {
             plugin.getMessage().sendmessage(sender, format(false, "error.console"));
             return;

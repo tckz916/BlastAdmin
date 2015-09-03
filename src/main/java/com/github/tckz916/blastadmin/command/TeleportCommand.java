@@ -56,6 +56,7 @@ public class TeleportCommand extends BaseCommand {
 
         Player player = (Player) sender;
         Player target = null;
+        String message = null;
 
         switch (args.length) {
             case 1:
@@ -65,15 +66,26 @@ public class TeleportCommand extends BaseCommand {
                     return;
                 }
                 player.teleport(target);
+                message = format("teleport.message")
+                        .replace("%from%", player.getDisplayName())
+                        .replace("%to%", target.getDisplayName());
+                plugin.getMessage().sendmessage(player, message);
+                plugin.getMessage().sendmessage(target, message);
                 break;
             case 2:
                 target = Bukkit.getPlayer(args[0]);
                 Player to = Bukkit.getPlayer(args[1]);
-                if(target == null || to == null){
+                if (target == null || to == null) {
                     plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
                     return;
                 }
                 target.teleport(to);
+                message = format("teleport.message")
+                        .replace("%from%", target.getDisplayName())
+                        .replace("%to%", to.getDisplayName());
+                plugin.getMessage().sendmessage(player, message);
+                plugin.getMessage().sendmessage(target, message);
+                plugin.getMessage().sendmessage(to, message);
                 break;
             case 3:
                 try {
@@ -83,6 +95,10 @@ public class TeleportCommand extends BaseCommand {
                     double z = Double.parseDouble(args[2]);
                     Location loc = new Location(world, x, y, z);
                     player.teleport(loc);
+                    message = format("teleport.message")
+                            .replace("%from%", player.getDisplayName())
+                            .replace("%to%", "" + x + ", " + y + ", " + z);
+                    plugin.getMessage().sendmessage(player, message);
                     break;
                 } catch (NumberFormatException e) {
                     sendUsage();
@@ -102,6 +118,11 @@ public class TeleportCommand extends BaseCommand {
                     double z = Double.parseDouble(args[3]);
                     Location loc = new Location(world, x, y, z);
                     target.teleport(loc);
+                    message = format("teleport.message")
+                            .replace("%from%", target.getDisplayName())
+                            .replace("%to%", "" + x + ", " + y + ", " + z);
+                    plugin.getMessage().sendmessage(player, message);
+                    plugin.getMessage().sendmessage(target, message);
                     break;
                 } catch (NumberFormatException e) {
                     sendUsage();
@@ -118,6 +139,10 @@ public class TeleportCommand extends BaseCommand {
                     double pitch = Double.parseDouble(args[4]);
                     Location loc = new Location(world, x, y, z, (float) yaw, (float) pitch);
                     player.teleport(loc);
+                    message = format("teleport.message")
+                            .replace("%from%", player.getDisplayName())
+                            .replace("%to%", "" + x + ", " + y + ", " + z + ", " + yaw + ", " + pitch);
+                    plugin.getMessage().sendmessage(player, message);
                     break;
                 } catch (NumberFormatException e) {
                     sendUsage();
@@ -139,6 +164,11 @@ public class TeleportCommand extends BaseCommand {
                     double pitch = Double.parseDouble(args[5]);
                     Location loc = new Location(world, x, y, z, (float) yaw, (float) pitch);
                     target.teleport(loc);
+                    message = format("teleport.message")
+                            .replace("%from%", target.getDisplayName())
+                            .replace("%to%", "" + x + ", " + y + ", " + z + ", " + yaw + ", " + pitch);
+                    plugin.getMessage().sendmessage(player, message);
+                    plugin.getMessage().sendmessage(target, message);
                     break;
                 } catch (NumberFormatException e) {
                     sendUsage();
@@ -150,6 +180,10 @@ public class TeleportCommand extends BaseCommand {
 
     private String format(boolean prefix, String key, Object... args) {
         return plugin.getMessageFormat().format(prefix, key, args);
+    }
+
+    private String format(String key, Object... args) {
+        return plugin.getMessageFormat().format(key, args);
     }
 
 }
