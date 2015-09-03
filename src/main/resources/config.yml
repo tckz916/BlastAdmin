@@ -1,0 +1,3 @@
+privatemessage:
+  fromformat: '%player% &d=> &r%message%'
+  toformat: '%player% &d=> &r%message%'

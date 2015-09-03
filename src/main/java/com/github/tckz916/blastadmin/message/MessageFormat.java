@@ -37,4 +37,18 @@ public class MessageFormat {
     public String coloring(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
     }
+
+    public String build(String[] strings, int start) {
+        if (strings.length >= start + 1) {
+            String str = strings[start];
+            if (strings.length >= start + 2) {
+                for (int i = start + 1; i < strings.length; i++) {
+                    str = str + " " + strings[i];
+                }
+            }
+            return str;
+        } else {
+            return null;
+        }
+    }
 }

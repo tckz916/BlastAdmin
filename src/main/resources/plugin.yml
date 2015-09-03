@@ -13,6 +13,12 @@ commands:
     description: Teleport Command
   whois:
     description: Whois Command
+  tell:
+    description: PrivateMessage Command
+    aliases: [whispers,w,pm,msg]
+  reply:
+    description: PrivateMessage Command
+    aliases: r
 permissions:
   blastadmin.admin:
     description:
@@ -21,10 +27,13 @@ permissions:
       blastadmin.command.help: true
       blastadmin.command.tp: true
       blastadmin.command.whois: true
+      blastadmin.command.tell: true
   blastadmin.command.help:
     default: op
   blastadmin.command.tp:
     default: op
   blastadmin.command.whois:
-      default: op
+    default: op
+  blastadmin.command.tell:
+    default: op
 

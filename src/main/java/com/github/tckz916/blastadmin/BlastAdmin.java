@@ -2,7 +2,6 @@ package com.github.tckz916.blastadmin;
 
 import com.github.tckz916.blastadmin.message.Message;
 import com.github.tckz916.blastadmin.message.MessageFormat;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,10 +25,15 @@ public class BlastAdmin extends JavaPlugin {
         message = new Message();
         messageFormat = new MessageFormat();
 
-        registercommand("blastadmin", new BlastAdminCommandHandler());
-        registercommand("tp", new BlastAdminCommandHandler());
-        registercommand("tphere", new BlastAdminCommandHandler());
-        registercommand("whois", new BlastAdminCommandHandler());
+        saveDefaultConfig();
+        reloadConfig();
+
+        registercommand("blastadmin");
+        registercommand("tp");
+        registercommand("tphere");
+        registercommand("whois");
+        registercommand("tell");
+        registercommand("reply");
     }
 
     @Override
@@ -38,8 +42,8 @@ public class BlastAdmin extends JavaPlugin {
     }
 
 
-    private void registercommand(String cmd, CommandExecutor executor) {
-        getCommand(cmd).setExecutor(executor);
+    private void registercommand(String cmd) {
+        getCommand(cmd).setExecutor(new BlastAdminCommandHandler());
     }
 
     private void registerlistener(Listener listener) {

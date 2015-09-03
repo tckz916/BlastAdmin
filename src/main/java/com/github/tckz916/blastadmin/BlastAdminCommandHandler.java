@@ -28,6 +28,12 @@ public class BlastAdminCommandHandler implements CommandExecutor {
             case "whois":
                 cmd = new WhoisCommand(sender);
                 break;
+            case "tell":
+                cmd = new PrivateMessageCommand(sender);
+                break;
+            case "reply":
+                cmd = new ReplyCommand(sender);
+                break;
         }
 
         cmd.execute(sender,command,label,args);

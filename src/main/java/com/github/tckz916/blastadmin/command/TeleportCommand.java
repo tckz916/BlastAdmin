@@ -55,28 +55,25 @@ public class TeleportCommand extends BaseCommand {
         }
 
         Player player = (Player) sender;
+        Player target = null;
 
         switch (args.length) {
             case 1:
-                try {
-                    Player target = Bukkit.getPlayer(args[0]);
-                    player.teleport(target);
-                    break;
-                } catch (NullPointerException e) {
-                    sendUsage();
-                    System.out.print(e);
+                target = Bukkit.getPlayer(args[0]);
+                if (target == null) {
+                    plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
+                    return;
                 }
+                player.teleport(target);
                 break;
             case 2:
-                try {
-                    Player from = Bukkit.getPlayer(args[0]);
-                    Player to = Bukkit.getPlayer(args[1]);
-                    from.teleport(to);
-                    break;
-                } catch (NullPointerException e) {
-                    sendUsage();
-                    System.out.print(e);
+                target = Bukkit.getPlayer(args[0]);
+                Player to = Bukkit.getPlayer(args[1]);
+                if(target == null || to == null){
+                    plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
+                    return;
                 }
+                target.teleport(to);
                 break;
             case 3:
                 try {
@@ -84,8 +81,8 @@ public class TeleportCommand extends BaseCommand {
                     double x = Double.parseDouble(args[0]);
                     double y = Double.parseDouble(args[1]);
                     double z = Double.parseDouble(args[2]);
-                    Location to = new Location(world, x, y, z);
-                    player.teleport(to);
+                    Location loc = new Location(world, x, y, z);
+                    player.teleport(loc);
                     break;
                 } catch (NumberFormatException e) {
                     sendUsage();
@@ -94,15 +91,19 @@ public class TeleportCommand extends BaseCommand {
                 break;
             case 4:
                 try {
-                    Player from = Bukkit.getPlayer(args[0]);
+                    target = Bukkit.getPlayer(args[0]);
+                    if (target == null) {
+                        plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
+                        return;
+                    }
                     World world = player.getWorld();
                     double x = Double.parseDouble(args[1]);
                     double y = Double.parseDouble(args[2]);
                     double z = Double.parseDouble(args[3]);
-                    Location to = new Location(world, x, y, z);
-                    from.teleport(to);
+                    Location loc = new Location(world, x, y, z);
+                    target.teleport(loc);
                     break;
-                } catch (NullPointerException | NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     sendUsage();
                     System.out.print(e);
                 }
@@ -115,8 +116,8 @@ public class TeleportCommand extends BaseCommand {
                     double z = Double.parseDouble(args[2]);
                     double yaw = Double.parseDouble(args[3]);
                     double pitch = Double.parseDouble(args[4]);
-                    Location to = new Location(world, x, y, z, (float) yaw, (float) pitch);
-                    player.teleport(to);
+                    Location loc = new Location(world, x, y, z, (float) yaw, (float) pitch);
+                    player.teleport(loc);
                     break;
                 } catch (NumberFormatException e) {
                     sendUsage();
@@ -125,17 +126,21 @@ public class TeleportCommand extends BaseCommand {
                 break;
             case 6:
                 try {
-                    Player from = Bukkit.getPlayer(args[0]);
+                    target = Bukkit.getPlayer(args[0]);
+                    if (target == null) {
+                        plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
+                        return;
+                    }
                     World world = player.getWorld();
                     double x = Double.parseDouble(args[1]);
                     double y = Double.parseDouble(args[2]);
                     double z = Double.parseDouble(args[3]);
                     double yaw = Double.parseDouble(args[4]);
                     double pitch = Double.parseDouble(args[5]);
-                    Location to = new Location(world, x, y, z, (float) yaw, (float) pitch);
-                    from.teleport(to);
+                    Location loc = new Location(world, x, y, z, (float) yaw, (float) pitch);
+                    target.teleport(loc);
                     break;
-                } catch (NullPointerException | NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     sendUsage();
                     System.out.print(e);
                 }

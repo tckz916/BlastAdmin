@@ -1,8 +1,10 @@
 prefix: '&7[&eBlastAdmin&7] &r'
 
 error:
+  no-reply: '&4メッセージを受けていません。'
   console: '&4このコマンドはコンソールから実行できません。'
   no-permission: '&4あなたは権限を持っていません。'
+  player-not-found: '&4プレイヤーが見つかりません。'
   usage:
     command: '&7- &bコマンド: &7{0}'
     description: '&7- &b説明: &7{0}'
@@ -12,3 +14,6 @@ help:
   help: '&7- &b/blastadmin &f- &7BlastAdminのコマンドを表示します。'
   tp: '&7- &b/tp &f- &7Teleportコマンドです。'
   tphere: '&7- &b/tphere &f- &7Teleportコマンドです。'
+  whois: '&7- &b/whois &f- &7Whoisコマンドです。'
+  tell: '&7- &b/tell &f- &7PrivateMessageコマンドです。'
+  reply: '&7- &b/reply &f- &7PrivateMessageコマンドです。'
