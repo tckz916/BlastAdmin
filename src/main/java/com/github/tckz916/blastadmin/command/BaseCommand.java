@@ -57,9 +57,9 @@ public abstract class BaseCommand {
     }
 
     public void sendUsage() {
-        plugin.getMessage().sendmessage(false, sender, "error.usage.command", name);
-        plugin.getMessage().sendmessage(false, sender, "error.usage.description", description);
-        plugin.getMessage().sendmessage(false, sender, "error.usage.usage", usage);
+        plugin.getMessage().sendmessage(sender, format(false, "error.usage.command", name));
+        plugin.getMessage().sendmessage(sender, format(false, "error.usage.description", description));
+        plugin.getMessage().sendmessage(sender, format(false, "error.usage.usage", usage));
     }
 
     public boolean isSenderPlayer() {
@@ -76,4 +76,8 @@ public abstract class BaseCommand {
 
 
     public abstract void execute(CommandSender sender, Command command, String label, String[] args);
+
+    private String format(boolean prefix, String key, Object... args) {
+        return plugin.getMessageFormat().format(prefix, key, args);
+    }
 }

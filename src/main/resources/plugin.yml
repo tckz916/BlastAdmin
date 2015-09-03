@@ -8,7 +8,11 @@ commands:
   blastadmin:
     description: Help Command
   tp:
-    description: Tp Command
+    description: Teleport Command
+  tphere:
+    description: Teleport Command
+  whois:
+    description: Whois Command
 permissions:
   blastadmin.admin:
     description:
@@ -16,8 +20,11 @@ permissions:
     children:
       blastadmin.command.help: true
       blastadmin.command.tp: true
+      blastadmin.command.whois: true
   blastadmin.command.help:
     default: op
   blastadmin.command.tp:
     default: op
+  blastadmin.command.whois:
+      default: op
 

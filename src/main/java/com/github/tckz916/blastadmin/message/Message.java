@@ -11,28 +11,23 @@ public class Message {
 
     private BlastAdmin plugin = BlastAdmin.getInstance();
 
-    public void sendmessage(boolean prefix, CommandSender sender, String key, Object... args) {
-        sender.sendMessage(plugin.getMessageFormat().format(prefix, key, args));
-    }
-
-    public void sendmessage(boolean prefix, Player player, String key, Object... args) {
-        player.sendMessage(plugin.getMessageFormat().format(prefix, key, args));
-    }
-
     public void sendmessage(CommandSender sender, String msg) {
-        sender.sendMessage(plugin.getMessageFormat().coloring(msg));
+        sender.sendMessage(msg);
     }
 
     public void sendmessage(Player player, String msg) {
-        player.sendMessage(plugin.getMessageFormat().coloring(msg));
+        player.sendMessage(msg);
     }
 
     public void broadcastmessage(boolean prefix, String msg) {
         for (Player player : plugin.getServer().getOnlinePlayers()) {
-            sendmessage(prefix, player, msg);
+            sendmessage(player, msg);
         }
     }
 
+    private String prefix(boolean prefix, String msg) {
+        return plugin.getMessageFormat().coloring(plugin.getMessageFormat().getMessageFile().get("prefix") + msg);
+    }
 
 
 }

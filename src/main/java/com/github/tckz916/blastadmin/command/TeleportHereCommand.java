@@ -19,7 +19,7 @@ public class TeleportHereCommand extends BaseCommand {
 
     public static final String DESCRIPTION = "Teleport Command";
 
-    public static final String USAGE = "\n /tphere <player>";
+    public static final String USAGE = "/tphere <player>";
 
     public TeleportHereCommand(CommandSender sender) {
         super(sender, NAME, PERMISSION, DESCRIPTION, USAGE);
@@ -28,15 +28,17 @@ public class TeleportHereCommand extends BaseCommand {
     @Override
     public void execute(CommandSender sender, Command command, String label, String[] args) {
         if (!hasPermission()) {
-            sendUsage();
+            plugin.getMessage().sendmessage(sender, format(false, "error.no-permission"));
             return;
         }
+
         if (isSenderConsole()) {
-            plugin.getMessage().sendmessage(false, sender, "error.console");
+            plugin.getMessage().sendmessage(sender, format(false, "error.console"));
             return;
         }
+
         if (isSenderRemoteConsole()) {
-            plugin.getMessage().sendmessage(false, sender, "error.console");
+            plugin.getMessage().sendmessage(sender, format(false, "error.console"));
             return;
         }
         if (args.length < 1 || args.length > 2) {
@@ -53,6 +55,9 @@ public class TeleportHereCommand extends BaseCommand {
             sendUsage();
             System.out.print(e);
         }
+    }
 
+    private String format(boolean prefix, String key, Object... args) {
+        return plugin.getMessageFormat().format(prefix, key, args);
     }
 }

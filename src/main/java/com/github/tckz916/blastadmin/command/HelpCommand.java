@@ -14,9 +14,9 @@ public class HelpCommand extends BaseCommand {
 
     public static final String NAME = "help";
 
-    public static final String DESCRIPTION = "Help Command";
-
     public static final String PERMISSION = "blastadmin.command.help";
+
+    public static final String DESCRIPTION = "Help Command";
 
     public static final String USAGE = "/blastadmin";
 
@@ -28,7 +28,7 @@ public class HelpCommand extends BaseCommand {
     public void execute(CommandSender sender, Command command, String label, String[] args) {
 
         if (!hasPermission()) {
-            plugin.getMessage().sendmessage(false, sender, "error.no-permission");
+            plugin.getMessage().sendmessage(sender, format(false, "error.no-permission"));
             return;
         }
 
@@ -36,10 +36,14 @@ public class HelpCommand extends BaseCommand {
 
         for (String s : help.getKeys(false)) {
             if (sender.hasPermission("blastadmin.command." + s) || s.equalsIgnoreCase("header")) {
-                plugin.getMessage().sendmessage(false, sender, help.getName() + "." + s);
+                plugin.getMessage().sendmessage(sender, format(false, help.getName() + "." + s));
             }
         }
 
+    }
+
+    private String format(boolean prefix, String key, Object... args) {
+        return plugin.getMessageFormat().format(prefix, key, args);
     }
 
 }

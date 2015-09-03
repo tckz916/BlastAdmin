@@ -21,12 +21,12 @@ public class TeleportCommand extends BaseCommand {
 
     public static final String DESCRIPTION = "Teleport Command";
 
-    public static final String USAGE = "\n /tp <player> " +
-            "\n /tp <player> <player> " +
-            "\n /tp <x> <y> <z> " +
-            "\n /tp <player> <x> <y> <z> " +
-            "\n /tp <x> <y> <z> <yaw> <pitch> " +
-            "\n /tp <player> <x> <y> <z> <yaw> <pitch>";
+    public static final String USAGE = "\n/tp <player>" +
+            "\n/tp <player> <player>" +
+            "\n/tp <x> <y> <z>" +
+            "\n/tp <player> <x> <y> <z>" +
+            "\n/tp <x> <y> <z> <yaw> <pitch>" +
+            "\n/tp <player> <x> <y> <z> <yaw> <pitch>";
 
     public TeleportCommand(CommandSender sender) {
         super(sender, NAME, PERMISSION, DESCRIPTION, USAGE);
@@ -35,17 +35,17 @@ public class TeleportCommand extends BaseCommand {
     @Override
     public void execute(CommandSender sender, Command command, String label, String[] args) {
         if (!hasPermission()) {
-            plugin.getMessage().sendmessage(false, sender, "error.no-permission");
+            plugin.getMessage().sendmessage(sender, format(false, "error.no-permission"));
             return;
         }
 
         if (isSenderConsole()) {
-            plugin.getMessage().sendmessage(false, sender, "error.console");
+            plugin.getMessage().sendmessage(sender, format(false, "error.console"));
             return;
         }
 
-        if(isSenderRemoteConsole()){
-            plugin.getMessage().sendmessage(false, sender, "error.console");
+        if (isSenderRemoteConsole()) {
+            plugin.getMessage().sendmessage(sender, format(false, "error.console"));
             return;
         }
 
@@ -65,8 +65,8 @@ public class TeleportCommand extends BaseCommand {
                 } catch (NullPointerException e) {
                     sendUsage();
                     System.out.print(e);
-                    break;
                 }
+                break;
             case 2:
                 try {
                     Player from = Bukkit.getPlayer(args[0]);
@@ -76,8 +76,8 @@ public class TeleportCommand extends BaseCommand {
                 } catch (NullPointerException e) {
                     sendUsage();
                     System.out.print(e);
-                    break;
                 }
+                break;
             case 3:
                 try {
                     World world = player.getWorld();
@@ -90,8 +90,8 @@ public class TeleportCommand extends BaseCommand {
                 } catch (NumberFormatException e) {
                     sendUsage();
                     System.out.print(e);
-                    break;
                 }
+                break;
             case 4:
                 try {
                     Player from = Bukkit.getPlayer(args[0]);
@@ -105,8 +105,8 @@ public class TeleportCommand extends BaseCommand {
                 } catch (NullPointerException | NumberFormatException e) {
                     sendUsage();
                     System.out.print(e);
-                    break;
                 }
+                break;
             case 5:
                 try {
                     World world = player.getWorld();
@@ -121,8 +121,8 @@ public class TeleportCommand extends BaseCommand {
                 } catch (NumberFormatException e) {
                     sendUsage();
                     System.out.print(e);
-                    break;
                 }
+                break;
             case 6:
                 try {
                     Player from = Bukkit.getPlayer(args[0]);
@@ -138,9 +138,13 @@ public class TeleportCommand extends BaseCommand {
                 } catch (NullPointerException | NumberFormatException e) {
                     sendUsage();
                     System.out.print(e);
-                    break;
                 }
+                break;
         }
+    }
+
+    private String format(boolean prefix, String key, Object... args) {
+        return plugin.getMessageFormat().format(prefix, key, args);
     }
 
 }

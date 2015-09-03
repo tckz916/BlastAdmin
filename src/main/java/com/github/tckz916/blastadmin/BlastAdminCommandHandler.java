@@ -1,9 +1,6 @@
 package com.github.tckz916.blastadmin;
 
-import com.github.tckz916.blastadmin.command.BaseCommand;
-import com.github.tckz916.blastadmin.command.HelpCommand;
-import com.github.tckz916.blastadmin.command.TeleportCommand;
-import com.github.tckz916.blastadmin.command.TeleportHereCommand;
+import com.github.tckz916.blastadmin.command.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,6 +24,9 @@ public class BlastAdminCommandHandler implements CommandExecutor {
                 break;
             case "tphere":
                 cmd = new TeleportHereCommand(sender);
+                break;
+            case "whois":
+                cmd = new WhoisCommand(sender);
                 break;
         }
 
