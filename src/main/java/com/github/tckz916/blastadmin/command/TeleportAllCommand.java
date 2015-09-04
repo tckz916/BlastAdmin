@@ -53,10 +53,10 @@ public class TeleportAllCommand extends BaseCommand {
                 for (Player players : Bukkit.getServer().getOnlinePlayers()) {
                     players.teleport(player);
                 }
-                message = format("teleport.message")
+                message = format(false, "teleport.message")
                         .replace("%from%", "OnlinePlayers")
                         .replace("%to%", player.getDisplayName());
-                plugin.getMessage().broadcastmessage(false, message);
+                plugin.getMessage().broadcastmessage(message);
                 break;
             case 1:
                 Player target = Bukkit.getPlayer(args[0]);
@@ -67,11 +67,11 @@ public class TeleportAllCommand extends BaseCommand {
                 for (Player players : Bukkit.getServer().getOnlinePlayers()) {
                     players.teleport(target);
                 }
-                message = format("teleport.message")
+                message = format(false, "teleport.message")
                         .replace("%from%", "OnlinePlayers")
                         .replace("%to%", target.getDisplayName());
 
-                plugin.getMessage().broadcastmessage(false, message);
+                plugin.getMessage().broadcastmessage(message);
                 break;
         }
     }
@@ -80,7 +80,4 @@ public class TeleportAllCommand extends BaseCommand {
         return plugin.getMessageFormat().format(prefix, key, args);
     }
 
-    private String format(String key, Object... args) {
-        return plugin.getMessageFormat().format(key, args);
-    }
 }

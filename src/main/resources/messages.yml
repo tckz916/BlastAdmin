@@ -12,6 +12,7 @@ error:
 help:
   header: '&7------- [&e BlastAdmin &7] -------'
   help: '&7- &b/blastadmin &f- &7BlastAdminのコマンドを表示します。'
+  serverinfo: '&7- &b/tp &f- &7ServerInfoコマンドです。'
   tp: '&7- &b/tp &f- &7Teleportコマンドです。'
   tpa: '&7- &b/tpa &f- &7Teleportコマンドです。'
   tphere: '&7- &b/tphere &f- &7Teleportコマンドです。'

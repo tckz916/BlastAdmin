@@ -7,6 +7,9 @@ main: com.github.tckz916.blastadmin.BlastAdmin
 commands:
   blastadmin:
     description: Help Command
+  serverinfo:
+    description: ServerInfo Command
+    aliases: si
   tp:
     description: Teleport Command
   tpa:
@@ -30,6 +33,7 @@ permissions:
       blastadmin.command.tp: true
       blastadmin.command.whois: true
       blastadmin.command.tell: true
+      blastadmin.command.serverinfo: true
   blastadmin.command.help:
     default: op
   blastadmin.command.tp:
@@ -37,5 +41,7 @@ permissions:
   blastadmin.command.whois:
     default: op
   blastadmin.command.tell:
+    default: op
+  blastadmin.command.serverinfo:
     default: op
 

@@ -19,6 +19,9 @@ public class BlastAdminCommandHandler implements CommandExecutor {
             case "blastadmin":
                 cmd = new HelpCommand(sender);
                 break;
+            case "serverinfo":
+                cmd = new ServerInfoCommand(sender);
+                break;
             case "tp":
                 cmd = new TeleportCommand(sender);
                 break;

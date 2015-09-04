@@ -52,7 +52,7 @@ public class TeleportHereCommand extends BaseCommand {
             return;
         }
         target.teleport(player);
-        String message = format("teleport.message")
+        String message = format(false, "teleport.message")
                 .replace("%from%", target.getDisplayName())
                 .replace("%to%", player.getDisplayName());
         plugin.getMessage().sendmessage(player, message);
@@ -63,7 +63,4 @@ public class TeleportHereCommand extends BaseCommand {
         return plugin.getMessageFormat().format(prefix, key, args);
     }
 
-    private String format(String key, Object... args) {
-        return plugin.getMessageFormat().format(key, args);
-    }
 }

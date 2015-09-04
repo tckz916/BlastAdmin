@@ -66,7 +66,7 @@ public class TeleportCommand extends BaseCommand {
                     return;
                 }
                 player.teleport(target);
-                message = format("teleport.message")
+                message = format(false, "teleport.message")
                         .replace("%from%", player.getDisplayName())
                         .replace("%to%", target.getDisplayName());
                 plugin.getMessage().sendmessage(player, message);
@@ -80,7 +80,7 @@ public class TeleportCommand extends BaseCommand {
                     return;
                 }
                 target.teleport(to);
-                message = format("teleport.message")
+                message = format(false, "teleport.message")
                         .replace("%from%", target.getDisplayName())
                         .replace("%to%", to.getDisplayName());
                 plugin.getMessage().sendmessage(player, message);
@@ -95,7 +95,7 @@ public class TeleportCommand extends BaseCommand {
                     double z = Double.parseDouble(args[2]);
                     Location loc = new Location(world, x, y, z);
                     player.teleport(loc);
-                    message = format("teleport.message")
+                    message = format(false, "teleport.message")
                             .replace("%from%", player.getDisplayName())
                             .replace("%to%", "" + x + ", " + y + ", " + z);
                     plugin.getMessage().sendmessage(player, message);
@@ -118,7 +118,7 @@ public class TeleportCommand extends BaseCommand {
                     double z = Double.parseDouble(args[3]);
                     Location loc = new Location(world, x, y, z);
                     target.teleport(loc);
-                    message = format("teleport.message")
+                    message = format(false, "teleport.message")
                             .replace("%from%", target.getDisplayName())
                             .replace("%to%", "" + x + ", " + y + ", " + z);
                     plugin.getMessage().sendmessage(player, message);
@@ -139,7 +139,7 @@ public class TeleportCommand extends BaseCommand {
                     double pitch = Double.parseDouble(args[4]);
                     Location loc = new Location(world, x, y, z, (float) yaw, (float) pitch);
                     player.teleport(loc);
-                    message = format("teleport.message")
+                    message = format(false, "teleport.message")
                             .replace("%from%", player.getDisplayName())
                             .replace("%to%", "" + x + ", " + y + ", " + z + ", " + yaw + ", " + pitch);
                     plugin.getMessage().sendmessage(player, message);
@@ -164,7 +164,7 @@ public class TeleportCommand extends BaseCommand {
                     double pitch = Double.parseDouble(args[5]);
                     Location loc = new Location(world, x, y, z, (float) yaw, (float) pitch);
                     target.teleport(loc);
-                    message = format("teleport.message")
+                    message = format(false, "teleport.message")
                             .replace("%from%", target.getDisplayName())
                             .replace("%to%", "" + x + ", " + y + ", " + z + ", " + yaw + ", " + pitch);
                     plugin.getMessage().sendmessage(player, message);
@@ -180,10 +180,6 @@ public class TeleportCommand extends BaseCommand {
 
     private String format(boolean prefix, String key, Object... args) {
         return plugin.getMessageFormat().format(prefix, key, args);
-    }
-
-    private String format(String key, Object... args) {
-        return plugin.getMessageFormat().format(key, args);
     }
 
 }

@@ -19,7 +19,7 @@ public class Message {
         player.sendMessage(msg);
     }
 
-    public void broadcastmessage(boolean prefix, String msg) {
+    public void broadcastmessage(String msg) {
         for (Player player : plugin.getServer().getOnlinePlayers()) {
             sendmessage(player, msg);
         }
