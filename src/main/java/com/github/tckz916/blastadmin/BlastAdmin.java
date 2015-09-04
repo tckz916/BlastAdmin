@@ -30,6 +30,8 @@ public class BlastAdmin extends JavaPlugin {
         reloadConfig();
 
         registercommand("blastadmin");
+        registercommand("day");
+        registercommand("night");
         registercommand("serverinfo");
         registercommand("tp");
         registercommand("tpa");

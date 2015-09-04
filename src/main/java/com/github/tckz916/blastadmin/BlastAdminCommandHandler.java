@@ -1,5 +1,6 @@
 package com.github.tckz916.blastadmin;
 
+import com.github.tckz916.blastadmin.api.BaseCommand;
 import com.github.tckz916.blastadmin.command.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,6 +19,12 @@ public class BlastAdminCommandHandler implements CommandExecutor {
         switch (command.getName()){
             case "blastadmin":
                 cmd = new HelpCommand(sender);
+                break;
+            case "day":
+                cmd = new DayCommand(sender);
+                break;
+            case "night":
+                cmd = new NightCommand(sender);
                 break;
             case "serverinfo":
                 cmd = new ServerInfoCommand(sender);

@@ -7,6 +7,10 @@ main: com.github.tckz916.blastadmin.BlastAdmin
 commands:
   blastadmin:
     description: Help Command
+  day:
+    description: Time Command
+  night:
+    description: Time Command
   serverinfo:
     description: ServerInfo Command
     aliases: si
@@ -34,6 +38,8 @@ permissions:
       blastadmin.command.whois: true
       blastadmin.command.tell: true
       blastadmin.command.serverinfo: true
+      blastadmin.command.day: true
+      blastadmin.command.night: true
   blastadmin.command.help:
     default: op
   blastadmin.command.tp:
@@ -43,5 +49,9 @@ permissions:
   blastadmin.command.tell:
     default: op
   blastadmin.command.serverinfo:
+    default: op
+  blastadmin.command.day:
+    default: op
+  blastadmin.command.night:
     default: op
 

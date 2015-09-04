@@ -1,6 +1,7 @@
 package com.github.tckz916.blastadmin.command;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
+import com.github.tckz916.blastadmin.api.BaseCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
@@ -29,6 +30,10 @@ public class HelpCommand extends BaseCommand {
 
         if (!hasPermission()) {
             plugin.getMessage().sendmessage(sender, format(false, "error.no-permission"));
+            return;
+        }
+        if (args.length > 0) {
+            sendUsage();
             return;
         }
 

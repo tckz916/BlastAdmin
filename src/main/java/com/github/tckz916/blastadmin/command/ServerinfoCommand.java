@@ -1,6 +1,7 @@
 package com.github.tckz916.blastadmin.command;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
+import com.github.tckz916.blastadmin.api.BaseCommand;
 import com.sun.management.OperatingSystemMXBean;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -33,7 +34,7 @@ public class ServerInfoCommand extends BaseCommand {
             plugin.getMessage().sendmessage(sender, format(false, "error.no-permission"));
             return;
         }
-        if (args.length > 1) {
+        if (args.length > 0) {
             sendUsage();
             return;
         }

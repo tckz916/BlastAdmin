@@ -1,4 +1,4 @@
-package com.github.tckz916.blastadmin.command;
+package com.github.tckz916.blastadmin.api;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import org.bukkit.command.Command;
