@@ -15,6 +15,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
+
         Player player = event.getPlayer();
         if (player.hasMetadata("reply")) {
             player.removeMetadata("reply", plugin);

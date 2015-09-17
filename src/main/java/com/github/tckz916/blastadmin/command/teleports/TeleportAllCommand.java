@@ -1,4 +1,4 @@
-package com.github.tckz916.blastadmin.command;
+package com.github.tckz916.blastadmin.command.teleports;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import com.github.tckz916.blastadmin.api.BaseCommand;
@@ -54,7 +54,7 @@ public class TeleportAllCommand extends BaseCommand {
                 for (Player players : Bukkit.getServer().getOnlinePlayers()) {
                     players.teleport(player);
                 }
-                message = format(false, "teleport.message")
+                message = format(false, "message.teleport")
                         .replace("%from%", "OnlinePlayers")
                         .replace("%to%", player.getDisplayName());
                 plugin.getMessage().broadcastmessage(message);
@@ -68,7 +68,7 @@ public class TeleportAllCommand extends BaseCommand {
                 for (Player players : Bukkit.getServer().getOnlinePlayers()) {
                     players.teleport(target);
                 }
-                message = format(false, "teleport.message")
+                message = format(false, "message.teleport")
                         .replace("%from%", "OnlinePlayers")
                         .replace("%to%", target.getDisplayName());
 

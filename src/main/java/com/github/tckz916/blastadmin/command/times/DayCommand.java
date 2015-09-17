@@ -1,4 +1,4 @@
-package com.github.tckz916.blastadmin.command;
+package com.github.tckz916.blastadmin.command.times;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import com.github.tckz916.blastadmin.api.BaseCommand;
@@ -9,19 +9,19 @@ import org.bukkit.entity.Player;
 /**
  * Created by tckz916 on 2015/09/04.
  */
-public class NightCommand extends BaseCommand {
+public class DayCommand extends BaseCommand {
 
     private BlastAdmin plugin = BlastAdmin.getInstance();
 
-    public static final String NAME = "night";
+    public static final String NAME = "day";
 
-    public static final String PERMISSION = "blastadmin.command.night";
+    public static final String PERMISSION = "blastadmin.command.day";
 
     public static final String DESCRIPTION = "Time Command";
 
-    public static final String USAGE = "/night";
+    public static final String USAGE = "/day";
 
-    public NightCommand(CommandSender sender) {
+    public DayCommand(CommandSender sender) {
         super(sender, NAME, PERMISSION, DESCRIPTION, USAGE);
     }
 
@@ -45,8 +45,8 @@ public class NightCommand extends BaseCommand {
         }
 
         Player player = (Player) sender;
-        player.getWorld().setTime(18000);
-        String day = format(false, "time.night")
+        player.getWorld().setTime(6000);
+        String day = format(false, "message.time.day")
                 .replace("%player%", player.getDisplayName());
         plugin.getMessage().sendmessage(sender, day);
     }

@@ -1,3 +1,10 @@
 privatemessage:
   fromformat: '%player% &d=> &r%message%'
   toformat: '%player% &d=> &r%message%'
+spawn:
+  world: 'world'
+  x: '0.0'
+  y: '100.0'
+  z: '0.0'
+  yaw: '0.0'
+  pitch: '0.0'

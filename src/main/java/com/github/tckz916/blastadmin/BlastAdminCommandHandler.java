@@ -1,7 +1,15 @@
 package com.github.tckz916.blastadmin;
 
 import com.github.tckz916.blastadmin.api.BaseCommand;
-import com.github.tckz916.blastadmin.command.*;
+import com.github.tckz916.blastadmin.command.etc.HelpCommand;
+import com.github.tckz916.blastadmin.command.etc.ServerInfoCommand;
+import com.github.tckz916.blastadmin.command.etc.WhoisCommand;
+import com.github.tckz916.blastadmin.command.items.MobHeadCommand;
+import com.github.tckz916.blastadmin.command.messages.PrivateMessageCommand;
+import com.github.tckz916.blastadmin.command.messages.ReplyCommand;
+import com.github.tckz916.blastadmin.command.teleports.*;
+import com.github.tckz916.blastadmin.command.times.DayCommand;
+import com.github.tckz916.blastadmin.command.times.NightCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,7 +24,7 @@ public class BlastAdminCommandHandler implements CommandExecutor {
 
         BaseCommand cmd = new HelpCommand(sender);
 
-        switch (command.getName()){
+        switch (command.getName()) {
             case "blastadmin":
                 cmd = new HelpCommand(sender);
                 break;
@@ -26,8 +34,17 @@ public class BlastAdminCommandHandler implements CommandExecutor {
             case "night":
                 cmd = new NightCommand(sender);
                 break;
+            case "mobhead":
+                cmd = new MobHeadCommand(sender);
+                break;
             case "serverinfo":
                 cmd = new ServerInfoCommand(sender);
+                break;
+            case "setspawn":
+                cmd = new SetSpawnCommand(sender);
+                break;
+            case "spawn":
+                cmd = new SpawnCommand(sender);
                 break;
             case "tp":
                 cmd = new TeleportCommand(sender);
@@ -49,7 +66,7 @@ public class BlastAdminCommandHandler implements CommandExecutor {
                 break;
         }
 
-        cmd.execute(sender,command,label,args);
+        cmd.execute(sender, command, label, args);
         return true;
     }
 }

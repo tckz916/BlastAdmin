@@ -14,14 +14,18 @@ help:
   help: '&7- &b/blastadmin &f- &7BlastAdminのコマンドを表示します。'
   day: '&7- &b/day &f- &7Timeコマンドです。'
   serverinfo: '&7- &b/serverinfo &f- &7ServerInfoコマンドです。'
+  setspawn: '&7- &b/setspawn &f- &7Teleportコマンドです。'
+  spawn: '&7- &b/spawn &f- &7Teleportコマンドです。'
   tp: '&7- &b/tp &f- &7Teleportコマンドです。'
   tpa: '&7- &b/tpa &f- &7Teleportコマンドです。'
   tphere: '&7- &b/tphere &f- &7Teleportコマンドです。'
   tell: '&7- &b/tell &f- &7PrivateMessageコマンドです。'
   reply: '&7- &b/reply &f- &7PrivateMessageコマンドです。'
   whois: '&7- &b/whois &f- &7Whoisコマンドです。'
-teleport:
-  message: '&b%from% &7Teleport to &b%to%'
-time:
-  day: '&b%player% &7Set time to &bDay'
-  night: '&b%player% &7Set time to &bNight'
+message:
+  teleport: '&b%from% &7Teleport to &b%to%'
+  setspawn: '&7Set Spawn...'
+  spawn: '&7Teleport to Spawn...'
+  time:
+    day: '&b%player% &7Set time to &bDay'
+    night: '&b%player% &7Set time to &bNight'

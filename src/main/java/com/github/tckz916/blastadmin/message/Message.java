@@ -25,9 +25,4 @@ public class Message {
         }
     }
 
-    private String prefix(boolean prefix, String msg) {
-        return plugin.getMessageFormat().coloring(plugin.getMessageFormat().getMessageFile().get("prefix") + msg);
-    }
-
-
 }

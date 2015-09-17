@@ -11,9 +11,15 @@ commands:
     description: Time Command
   night:
     description: Time Command
+  mobhead:
+    description: Item Command
   serverinfo:
     description: ServerInfo Command
     aliases: si
+  setspawn:
+    description: Teleport Command
+  spawn:
+    description: Teleport Command
   tp:
     description: Teleport Command
   tpa:
@@ -40,6 +46,7 @@ permissions:
       blastadmin.command.serverinfo: true
       blastadmin.command.day: true
       blastadmin.command.night: true
+      blastadmin.command.mobhead: true
   blastadmin.command.help:
     default: op
   blastadmin.command.tp:
@@ -53,5 +60,7 @@ permissions:
   blastadmin.command.day:
     default: op
   blastadmin.command.night:
+    default: op
+  blastadmin.command.mobhead:
     default: op
 
