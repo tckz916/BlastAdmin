@@ -1,6 +1,6 @@
 privatemessage:
-  fromformat: '%player% &d=> &r%message%'
-  toformat: '%player% &d=> &r%message%'
+  fromformat: '&dTo [&r%player%]&d: &d%message%'
+  toformat: '&d[&r%player%&d] whispers: &d%message%'
 spawn:
   world: 'world'
   x: '0.0'
@@ -8,3 +8,4 @@ spawn:
   z: '0.0'
   yaw: '0.0'
   pitch: '0.0'
+  join: false

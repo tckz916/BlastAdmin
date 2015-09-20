@@ -46,7 +46,7 @@ public class DayCommand extends BaseCommand {
 
         Player player = (Player) sender;
         player.getWorld().setTime(6000);
-        String day = format(false, "message.time.day")
+        String day = format(true, "message.time.day")
                 .replace("%player%", player.getDisplayName());
         plugin.getMessage().sendmessage(sender, day);
     }

@@ -60,7 +60,7 @@ public class SpawnCommand extends BaseCommand {
 
         player.teleport(location);
 
-        String message = format(false, "message.spawn");
+        String message = format(true, "message.spawn");
 
         plugin.getMessage().sendmessage(sender, message);
 

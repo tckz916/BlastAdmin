@@ -73,7 +73,8 @@ public class MobHeadCommand extends BaseCommand {
         skullmeta.setOwner(name);
         itemStack.setItemMeta(skullmeta);
         inventory.addItem(itemStack);
-        plugin.getMessage().sendmessage(player, coloring("&b" + name + "&7の頭を手に入れました。"));
+        String message = format(true, "message.mobhead");
+        plugin.getMessage().sendmessage(player, message);
     }
 
     private String coloring(String msg){

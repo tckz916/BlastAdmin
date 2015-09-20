@@ -65,7 +65,7 @@ public class SetSpawnCommand extends BaseCommand {
 
         plugin.saveConfig();
 
-        String message = format(false, "message.setspawn");
+        String message = format(true, "message.setspawn");
 
         plugin.getMessage().sendmessage(sender, message);
 

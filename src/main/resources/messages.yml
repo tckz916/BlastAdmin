@@ -1,4 +1,4 @@
-prefix: '&7[&eBlastAdmin&7] &r'
+prefix: '&7[&bBlastAdmin&7] &r'
 
 error:
   no-reply: '&4メッセージを受けていません。'
@@ -13,6 +13,7 @@ help:
   header: '&7------- [&e BlastAdmin &7] -------'
   help: '&7- &b/blastadmin &f- &7BlastAdminのコマンドを表示します。'
   day: '&7- &b/day &f- &7Timeコマンドです。'
+  night: '&7- &b/night &f- &7Timeコマンドです。'
   serverinfo: '&7- &b/serverinfo &f- &7ServerInfoコマンドです。'
   setspawn: '&7- &b/setspawn &f- &7Teleportコマンドです。'
   spawn: '&7- &b/spawn &f- &7Teleportコマンドです。'
@@ -24,6 +25,7 @@ help:
   whois: '&7- &b/whois &f- &7Whoisコマンドです。'
 message:
   teleport: '&b%from% &7Teleport to &b%to%'
+  mobhead: '&bGave %player% &7head'
   setspawn: '&7Set Spawn...'
   spawn: '&7Teleport to Spawn...'
   time:

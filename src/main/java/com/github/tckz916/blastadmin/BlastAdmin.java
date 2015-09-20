@@ -3,6 +3,7 @@ package com.github.tckz916.blastadmin;
 import com.github.tckz916.blastadmin.listener.PlayerListener;
 import com.github.tckz916.blastadmin.message.Message;
 import com.github.tckz916.blastadmin.message.MessageFormat;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -54,6 +55,10 @@ public class BlastAdmin extends JavaPlugin {
 
     private void registercommand(String cmd) {
         getCommand(cmd).setExecutor(new BlastAdminCommandHandler());
+    }
+
+    private void registertabcomplete(String cmd, TabCompleter completer){
+        getCommand(cmd).setTabCompleter(completer);
     }
 
     private void registerlistener(Listener listener) {

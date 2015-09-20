@@ -46,7 +46,7 @@ public class NightCommand extends BaseCommand {
 
         Player player = (Player) sender;
         player.getWorld().setTime(18000);
-        String day = format(false, "message.time.night")
+        String day = format(true, "message.time.night")
                 .replace("%player%", player.getDisplayName());
         plugin.getMessage().sendmessage(sender, day);
     }
