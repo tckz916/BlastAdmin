@@ -2,6 +2,7 @@ package com.github.tckz916.blastadmin;
 
 import com.github.tckz916.blastadmin.api.BaseCommand;
 import com.github.tckz916.blastadmin.command.etc.HelpCommand;
+import com.github.tckz916.blastadmin.command.etc.PrefixCommand;
 import com.github.tckz916.blastadmin.command.etc.ServerInfoCommand;
 import com.github.tckz916.blastadmin.command.etc.WhoisCommand;
 import com.github.tckz916.blastadmin.command.items.MobHeadCommand;
@@ -36,6 +37,9 @@ public class BlastAdminCommandHandler implements CommandExecutor {
                 break;
             case "mobhead":
                 cmd = new MobHeadCommand(sender);
+                break;
+            case "prefix":
+                cmd = new PrefixCommand(sender);
                 break;
             case "serverinfo":
                 cmd = new ServerInfoCommand(sender);

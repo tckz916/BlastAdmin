@@ -1,5 +1,6 @@
 package com.github.tckz916.blastadmin;
 
+import com.github.tckz916.blastadmin.command.PrefixTabComple;
 import com.github.tckz916.blastadmin.listener.PlayerListener;
 import com.github.tckz916.blastadmin.message.Message;
 import com.github.tckz916.blastadmin.message.MessageFormat;
@@ -34,6 +35,7 @@ public class BlastAdmin extends JavaPlugin {
         registercommand("day");
         registercommand("night");
         registercommand("mobhead");
+        registercommand("prefix");
         registercommand("serverinfo");
         registercommand("setspawn");
         registercommand("spawn");
@@ -43,6 +45,8 @@ public class BlastAdmin extends JavaPlugin {
         registercommand("whois");
         registercommand("tell");
         registercommand("reply");
+
+        registertabcomplete("prefix", new PrefixTabComple());
 
         registerlistener(new PlayerListener());
     }
@@ -57,7 +61,7 @@ public class BlastAdmin extends JavaPlugin {
         getCommand(cmd).setExecutor(new BlastAdminCommandHandler());
     }
 
-    private void registertabcomplete(String cmd, TabCompleter completer){
+    private void registertabcomplete(String cmd, TabCompleter completer) {
         getCommand(cmd).setTabCompleter(completer);
     }
 

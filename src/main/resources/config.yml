@@ -1,5 +1,5 @@
 privatemessage:
-  fromformat: '&dTo [&r%player%]&d: &d%message%'
+  fromformat: '&dTo [&r%player%&d]: &d%message%'
   toformat: '&d[&r%player%&d] whispers: &d%message%'
 spawn:
   world: 'world'
@@ -9,3 +9,6 @@ spawn:
   yaw: '0.0'
   pitch: '0.0'
   join: false
+prefix:
+  admin: '&7[&cAdmin&7] '
+  test1: '&atest'

@@ -13,6 +13,8 @@ commands:
     description: Time Command
   mobhead:
     description: Item Command
+  prefix:
+    description: Prefix Command
   serverinfo:
     description: ServerInfo Command
     aliases: si
@@ -47,6 +49,9 @@ permissions:
       blastadmin.command.day: true
       blastadmin.command.night: true
       blastadmin.command.mobhead: true
+      blastadmin.command.prefix: true
+      blastadmin.command.setspawn: true
+      blastadmin.command.spawn: true
   blastadmin.command.help:
     default: op
   blastadmin.command.tp:
@@ -63,4 +68,10 @@ permissions:
     default: op
   blastadmin.command.mobhead:
     default: op
+  blastadmin.command.prefix:
+   default: op
+  blastadmin.command.setspawn:
+   default: op
+  blastadmin.command.spawn:
+   default: op
 

@@ -5,15 +5,17 @@ error:
   console: '&4このコマンドはコンソールから実行できません。'
   no-permission: '&4あなたは権限を持っていません。'
   player-not-found: '&4プレイヤーが見つかりません。'
+  already-exists: '&4既に存在しています。'
   usage:
     command: '&7- &bコマンド: &7{0}'
     description: '&7- &b説明: &7{0}'
     usage: '&7- &b使い方: &7{0}'
 help:
-  header: '&7------- [&e BlastAdmin &7] -------'
+  header: '&7------- [&b BlastAdmin &7] -------'
   help: '&7- &b/blastadmin &f- &7BlastAdminのコマンドを表示します。'
   day: '&7- &b/day &f- &7Timeコマンドです。'
   night: '&7- &b/night &f- &7Timeコマンドです。'
+  prefix: '&7- &b/prefix &f- &7Prefixコマンドです。'
   serverinfo: '&7- &b/serverinfo &f- &7ServerInfoコマンドです。'
   setspawn: '&7- &b/setspawn &f- &7Teleportコマンドです。'
   spawn: '&7- &b/spawn &f- &7Teleportコマンドです。'
@@ -28,6 +30,14 @@ message:
   mobhead: '&bGave %player% &7head'
   setspawn: '&7Set Spawn...'
   spawn: '&7Teleport to Spawn...'
+  prefix:
+    help: '&7Set the blank in &b#s'
+    add: '&r%prefix% &7Add to prefix list'
+    delete: '&7Remove &r%prefix% &7from prefix list'
+    get: '&7- {0} &f- &r%prefix%'
+    list: '&7- {0} &f- &r%prefix%'
+    rename: '&7Change prefix of &r%prefix%'
+    set: '&r%prefix% &7set to &b%player%'
   time:
     day: '&b%player% &7Set time to &bDay'
     night: '&b%player% &7Set time to &bNight'
