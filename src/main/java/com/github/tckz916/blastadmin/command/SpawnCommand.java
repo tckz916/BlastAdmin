@@ -1,28 +1,29 @@
-package com.github.tckz916.blastadmin.command.teleports;
+package com.github.tckz916.blastadmin.command;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import com.github.tckz916.blastadmin.api.BaseCommand;
-import org.bukkit.World;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
- * Created by tckz916 on 2015/09/14.
+ * Created by tckz916 on 2015/09/13.
  */
-public class SetSpawnCommand extends BaseCommand {
+public class SpawnCommand extends BaseCommand {
 
     private BlastAdmin plugin = BlastAdmin.getInstance();
 
-    public static final String NAME = "setspawn";
+    public static final String NAME = "spawn";
 
-    public static final String PERMISSION = "blastadmin.command.setspawn";
+    public static final String PERMISSION = "blastadmin.command.spawn";
 
     public static final String DESCRIPTION = "Teleport Command";
 
-    public static final String USAGE = "/setspawn";
+    public static final String USAGE = "/spawn";
 
-    public SetSpawnCommand(CommandSender sender) {
+    public SpawnCommand(CommandSender sender) {
         super(sender, NAME, PERMISSION, DESCRIPTION, USAGE);
     }
 
@@ -47,28 +48,21 @@ public class SetSpawnCommand extends BaseCommand {
 
         Player player = (Player) sender;
 
+        String world = plugin.getConfig().getString("spawn.world");
 
-        String  world = player.getWorld().getName();
+        double x = Double.parseDouble(plugin.getConfig().getString("spawn.x"));
+        double y = Double.parseDouble(plugin.getConfig().getString("spawn.y"));
+        double z = Double.parseDouble(plugin.getConfig().getString("spawn.z"));
+        double yaw = Double.parseDouble(plugin.getConfig().getString("spawn.yaw"));
+        double pitch = Double.parseDouble(plugin.getConfig().getString("spawn.pitch"));
 
-        double x = player.getLocation().getX();
-        double y = player.getLocation().getY();
-        double z = player.getLocation().getZ();
-        double yaw = player.getLocation().getYaw();
-        double pitch = player.getLocation().getPitch();
+        Location location = new Location(Bukkit.getWorld(world), x, y, z, (float) yaw, (float) pitch);
 
-        plugin.getConfig().set("spawn.world", world);
-        plugin.getConfig().set("spawn.x", String.valueOf(x));
-        plugin.getConfig().set("spawn.y", String.valueOf(y));
-        plugin.getConfig().set("spawn.z", String.valueOf(z));
-        plugin.getConfig().set("spawn.yaw", String.valueOf(yaw));
-        plugin.getConfig().set("spawn.pitch", String.valueOf(pitch));
+        player.teleport(location);
 
-        plugin.saveConfig();
-
-        String message = format(true, "message.setspawn");
+        String message = format(true, "message.spawn");
 
         plugin.getMessage().sendmessage(sender, message);
-
 
     }
 

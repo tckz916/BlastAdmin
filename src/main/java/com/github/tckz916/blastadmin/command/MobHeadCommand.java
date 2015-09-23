@@ -1,4 +1,4 @@
-package com.github.tckz916.blastadmin.command.items;
+package com.github.tckz916.blastadmin.command;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import com.github.tckz916.blastadmin.api.BaseCommand;
@@ -57,7 +57,7 @@ public class MobHeadCommand extends BaseCommand {
                 getSkull(player, player.getName());
                 break;
             case 1:
-                if (args[0].matches("[A-Za-z0-9_]{2,16}")) {
+                if (!args[0].matches("[A-Za-z0-9_]{2,16}")) {
                     plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
                     return;
                 }
@@ -73,12 +73,8 @@ public class MobHeadCommand extends BaseCommand {
         skullmeta.setOwner(name);
         itemStack.setItemMeta(skullmeta);
         inventory.addItem(itemStack);
-        String message = format(true, "message.mobhead");
+        String message = format(true, "message.mobhead").replace("%player%", name);
         plugin.getMessage().sendmessage(player, message);
-    }
-
-    private String coloring(String msg){
-        return plugin.getMessageFormat().coloring(msg);
     }
 
     private String format(boolean prefix, String key, Object... args) {

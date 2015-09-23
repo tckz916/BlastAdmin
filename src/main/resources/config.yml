@@ -11,4 +11,4 @@ spawn:
   join: false
 prefix:
   admin: '&7[&cAdmin&7] '
-  test1: '&atest'
+  mod: '&7[&9Mod&7] '

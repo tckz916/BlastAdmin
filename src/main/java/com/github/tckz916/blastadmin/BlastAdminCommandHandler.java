@@ -1,16 +1,7 @@
 package com.github.tckz916.blastadmin;
 
 import com.github.tckz916.blastadmin.api.BaseCommand;
-import com.github.tckz916.blastadmin.command.etc.HelpCommand;
-import com.github.tckz916.blastadmin.command.etc.PrefixCommand;
-import com.github.tckz916.blastadmin.command.etc.ServerInfoCommand;
-import com.github.tckz916.blastadmin.command.etc.WhoisCommand;
-import com.github.tckz916.blastadmin.command.items.MobHeadCommand;
-import com.github.tckz916.blastadmin.command.messages.PrivateMessageCommand;
-import com.github.tckz916.blastadmin.command.messages.ReplyCommand;
-import com.github.tckz916.blastadmin.command.teleports.*;
-import com.github.tckz916.blastadmin.command.times.DayCommand;
-import com.github.tckz916.blastadmin.command.times.NightCommand;
+import com.github.tckz916.blastadmin.command.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,6 +22,9 @@ public class BlastAdminCommandHandler implements CommandExecutor {
                 break;
             case "day":
                 cmd = new DayCommand(sender);
+                break;
+            case "gamemode":
+                cmd = new GamemodeCommand(sender);
                 break;
             case "night":
                 cmd = new NightCommand(sender);

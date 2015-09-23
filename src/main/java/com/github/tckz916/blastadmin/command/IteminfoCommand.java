@@ -1,27 +1,31 @@
-package com.github.tckz916.blastadmin.command.times;
+package com.github.tckz916.blastadmin.command;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import com.github.tckz916.blastadmin.api.BaseCommand;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
 
 /**
- * Created by tckz916 on 2015/09/04.
+ * Created by tckz916 on 2015/09/23.
  */
-public class NightCommand extends BaseCommand {
+public class IteminfoCommand extends BaseCommand {
 
     private BlastAdmin plugin = BlastAdmin.getInstance();
 
-    public static final String NAME = "night";
+    public static final String NAME = "iteminfo";
 
-    public static final String PERMISSION = "blastadmin.command.night";
+    public static final String PERMISSION = "blastadmin.command.iteminfo";
 
-    public static final String DESCRIPTION = "Time Command";
+    public static final String DESCRIPTION = "Item Command";
 
-    public static final String USAGE = "/night";
+    public static final String USAGE = "/iteminfo";
 
-    public NightCommand(CommandSender sender) {
+    public IteminfoCommand(CommandSender sender) {
         super(sender, NAME, PERMISSION, DESCRIPTION, USAGE);
     }
 
@@ -39,16 +43,16 @@ public class NightCommand extends BaseCommand {
             plugin.getMessage().sendmessage(sender, format(false, "error.console"));
             return;
         }
-        if (args.length > 0) {
+        if (args.length > 2) {
             sendUsage();
             return;
         }
 
+
         Player player = (Player) sender;
-        player.getWorld().setTime(18000);
-        String day = format(true, "message.time.night")
-                .replace("%player%", player.getDisplayName());
-        plugin.getMessage().sendmessage(sender, day);
+        ItemStack hand = player.getItemInHand();
+
+
     }
 
     private String format(boolean prefix, String key, Object... args) {

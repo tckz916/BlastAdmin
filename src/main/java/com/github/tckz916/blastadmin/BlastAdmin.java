@@ -1,6 +1,7 @@
 package com.github.tckz916.blastadmin;
 
-import com.github.tckz916.blastadmin.command.PrefixTabComple;
+import com.github.tckz916.blastadmin.command.tabcomplete.GamemodeTabComplete;
+import com.github.tckz916.blastadmin.command.tabcomplete.PrefixTabComple;
 import com.github.tckz916.blastadmin.listener.PlayerListener;
 import com.github.tckz916.blastadmin.message.Message;
 import com.github.tckz916.blastadmin.message.MessageFormat;
@@ -33,6 +34,7 @@ public class BlastAdmin extends JavaPlugin {
 
         registercommand("blastadmin");
         registercommand("day");
+        registercommand("gamemode");
         registercommand("night");
         registercommand("mobhead");
         registercommand("prefix");
@@ -47,6 +49,7 @@ public class BlastAdmin extends JavaPlugin {
         registercommand("reply");
 
         registertabcomplete("prefix", new PrefixTabComple());
+        registertabcomplete("gamemode", new GamemodeTabComplete());
 
         registerlistener(new PlayerListener());
     }

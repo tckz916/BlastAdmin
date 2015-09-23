@@ -1,4 +1,4 @@
-package com.github.tckz916.blastadmin.command.times;
+package com.github.tckz916.blastadmin.command;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import com.github.tckz916.blastadmin.api.BaseCommand;

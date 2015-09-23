@@ -1,4 +1,4 @@
-package com.github.tckz916.blastadmin.command.etc;
+package com.github.tckz916.blastadmin.command;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import com.github.tckz916.blastadmin.api.BaseCommand;
@@ -55,11 +55,9 @@ public class PrefixCommand extends BaseCommand {
                     plugin.getMessage().sendmessage(sender, coloring("&7- &b使い方: &7/prefix add <name> <prefix>"));
                     return;
                 }
-                for (String s : prefix.getKeys(false)) {
-                    if (s.equals(args[1])) {
-                        plugin.getMessage().sendmessage(sender, format(false, "error.already-exists"));
-                        return;
-                    }
+                if (prefix.getKeys(false).contains(args[1])) {
+                    plugin.getMessage().sendmessage(sender, format(false, "error.already-exists"));
+                    return;
                 }
                 plugin.getConfig().set("prefix." + args[1], coloring(build(args, 2)).replace("#s", " "));
                 plugin.saveConfig();
@@ -103,22 +101,45 @@ public class PrefixCommand extends BaseCommand {
                     plugin.getMessage().sendmessage(sender, coloring("&7- &b使い方: &7/prefix rename <name> <prefix>"));
                     return;
                 }
-                plugin.getConfig().set("prefix." + args[1], coloring(build(args, 2)).replace("%space%", " "));
+                if (!prefix.getKeys(false).contains(args[1])) {
+                    plugin.getMessage().sendmessage(sender, format(false, "error.already-prefix"));
+                    return;
+                }
+                plugin.getConfig().set("prefix." + args[1], coloring(build(args, 2)).replace("#s", " "));
                 plugin.saveConfig();
-                plugin.getMessage().sendmessage(sender, format(true, "message.prefix.rename").replace("#s", args[1]));
+                plugin.getMessage().sendmessage(sender,
+                        format(true, "message.prefix.rename")
+                                .replace("%prefix%", args[1]));
+                break;
+            case "reset":
+                if (args.length < 2) {
+                    plugin.getMessage().sendmessage(sender, coloring("&7- &b使い方: &7/prefix reset <player>"));
+                    return;
+                }
+                if (getPlayer(args[1]) == null) {
+                    plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
+                    return;
+                }
+                getPlayer(args[1]).setDisplayName(getPlayer(args[1]).getName());
+                plugin.getMessage().sendmessage(sender,
+                        format(true, "message.prefix.reset")
+                                .replace("%player%", getPlayer(args[1]).getName()));
                 break;
             case "set":
                 if (args.length < 3) {
                     plugin.getMessage().sendmessage(sender, coloring("&7- &b使い方: &7/prefix set <name> <player>"));
                     return;
                 }
-                Player player = (Player) sender;
+                if (getPlayer(args[2]) == null) {
+                    plugin.getMessage().sendmessage(sender, format(false, "error.player-not-found"));
+                    return;
+                }
                 Object pn = plugin.getConfig().get("prefix." + args[1]);
-                player.setDisplayName(coloring(pn + "&r" + player.getName()));
+                getPlayer(args[2]).setDisplayName(coloring(pn + "&r" + getPlayer(args[2]).getName()));
                 plugin.getMessage().sendmessage(sender,
                         format(true, "message.prefix.set")
                                 .replace("%prefix%", args[1])
-                                .replace("%player%", player.getName()));
+                                .replace("%player%", getPlayer(args[2]).getName()));
                 break;
             default:
                 sendUsage();
@@ -132,6 +153,10 @@ public class PrefixCommand extends BaseCommand {
 
     private String format(boolean prefix, String key, Object... args) {
         return plugin.getMessageFormat().format(prefix, key, args);
+    }
+
+    private Player getPlayer(String name) {
+        return plugin.getServer().getPlayer(name);
     }
 
     private String coloring(String msg) {

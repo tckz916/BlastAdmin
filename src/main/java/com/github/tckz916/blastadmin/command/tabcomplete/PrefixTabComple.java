@@ -1,4 +1,4 @@
-package com.github.tckz916.blastadmin.command;
+package com.github.tckz916.blastadmin.command.tabcomplete;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import org.bukkit.Bukkit;
@@ -21,7 +21,7 @@ public class PrefixTabComple implements TabCompleter {
 
     private BlastAdmin plugin = BlastAdmin.getInstance();
 
-    private static final String[] COMMANDS = {"add", "delete", "list", "get", "set", "rename"};
+    private static final String[] COMMANDS = {"add", "delete", "list", "get", "set", "reset","rename"};
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
@@ -45,6 +45,13 @@ public class PrefixTabComple implements TabCompleter {
                         prefixs.add(s);
                     }
                     StringUtil.copyPartialMatches(args[1], prefixs, list);
+                }
+                if (args[0].equals("reset")) {
+                    List<String> players = new ArrayList<>();
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        players.add(player.getName());
+                    }
+                    StringUtil.copyPartialMatches(args[1], players, list);
                 }
                 break;
             case 3:

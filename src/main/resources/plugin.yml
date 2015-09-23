@@ -9,6 +9,9 @@ commands:
     description: Help Command
   day:
     description: Time Command
+  gamemode:
+    description: Gamemode Command
+    aliases: gm
   night:
     description: Time Command
   mobhead:
@@ -52,6 +55,7 @@ permissions:
       blastadmin.command.prefix: true
       blastadmin.command.setspawn: true
       blastadmin.command.spawn: true
+      blastadmin.command.gamemode: true
   blastadmin.command.help:
     default: op
   blastadmin.command.tp:
@@ -73,5 +77,7 @@ permissions:
   blastadmin.command.setspawn:
    default: op
   blastadmin.command.spawn:
+   default: op
+  blastadmin.command.gamemode:
    default: op
 
