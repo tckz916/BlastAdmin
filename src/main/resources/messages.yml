@@ -16,6 +16,7 @@ help:
   help: '&7- &b/blastadmin &f- &7BlastAdminのコマンドを表示します。'
   day: '&7- &b/day &f- &7Timeコマンドです。'
   gamemode: '&7- &b/gamemode &f- &7Gamemodeコマンドです。'
+  iteminfo: '&7- &b/iteminfo &f- &7Itemコマンドです。'
   mobhead: '&7- &b/mobhead &f- &7Itemコマンドです。'
   night: '&7- &b/night &f- &7Timeコマンドです。'
   prefix: '&7- &b/prefix &f- &7Prefixコマンドです。'
