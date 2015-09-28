@@ -40,7 +40,7 @@ public class IteminfoCommand extends BaseCommand {
             plugin.getMessage().sendmessage(sender, format(false, "error.console"));
             return;
         }
-        if (args.length > 2) {
+        if (args.length > 0) {
             sendUsage();
             return;
         }
