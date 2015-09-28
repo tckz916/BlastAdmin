@@ -1,6 +1,7 @@
 privatemessage:
   fromformat: '&dTo [&r%player%&d]: &d%message%'
   toformat: '&d[&r%player%&d] whispers: &d%message%'
+messageformat: '<%player%> %message%'
 spawn:
   world: 'world'
   x: '0.0'

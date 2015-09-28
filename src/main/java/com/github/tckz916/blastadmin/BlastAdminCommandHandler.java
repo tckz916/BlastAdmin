@@ -26,6 +26,9 @@ public class BlastAdminCommandHandler implements CommandExecutor {
             case "gamemode":
                 cmd = new GamemodeCommand(sender);
                 break;
+            case "iteminfo":
+                cmd = new IteminfoCommand(sender);
+                break;
             case "night":
                 cmd = new NightCommand(sender);
                 break;

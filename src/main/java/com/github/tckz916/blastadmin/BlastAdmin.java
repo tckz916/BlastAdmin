@@ -35,6 +35,7 @@ public class BlastAdmin extends JavaPlugin {
         registercommand("blastadmin");
         registercommand("day");
         registercommand("gamemode");
+        registercommand("iteminfo");
         registercommand("night");
         registercommand("mobhead");
         registercommand("prefix");

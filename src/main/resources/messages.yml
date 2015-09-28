@@ -29,7 +29,7 @@ help:
   tphere: '&7- &b/tphere &f- &7Teleportコマンドです。'
   whois: '&7- &b/whois &f- &7Whoisコマンドです。'
 message:
-  iteminfo: '&7Material'
+  iteminfo: '&7Material: &b%material% &7Id: &b%id% &7Damage: &b%damage%'
   gamemode: '&7Set game mode &b%gamemode% &7for &b%player%'
   teleport: '&b%from% &7Teleport to &b%to%'
   mobhead: '&7Gave &b%player% &7head'

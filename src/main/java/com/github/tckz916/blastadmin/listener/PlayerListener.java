@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -42,5 +43,24 @@ public class PlayerListener implements Listener {
         if (player.hasMetadata("reply")) {
             player.removeMetadata("reply", plugin);
         }
+    }
+
+    @EventHandler
+    public void onChat(AsyncPlayerChatEvent event) {
+
+        plugin.reloadConfig();
+
+        Player player = event.getPlayer();
+
+        String messageformat = plugin.getConfig().getString("messageformat")
+                .replace("%player%", player.getDisplayName())
+                .replace("%message%", "%2$s");
+
+        event.setFormat(coloring(messageformat));
+
+    }
+
+    private String coloring(String msg) {
+        return plugin.getMessageFormat().coloring(msg);
     }
 }

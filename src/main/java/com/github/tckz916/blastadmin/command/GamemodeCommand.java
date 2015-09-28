@@ -20,7 +20,7 @@ public class GamemodeCommand extends BaseCommand {
 
     public static final String DESCRIPTION = "Gamemode Command";
 
-    public static final String USAGE = "/gamemode <>";
+    public static final String USAGE = "/gamemode <adventure||creative||spectator||survival>";
 
     public GamemodeCommand(CommandSender sender) {
         super(sender, NAME, PERMISSION, DESCRIPTION, USAGE);
@@ -59,6 +59,10 @@ public class GamemodeCommand extends BaseCommand {
                         format(true, "message.gamemode")
                                 .replace("%gamemode%", target.getGameMode().name())
                                 .replace("%player%", target.getName()));
+                plugin.getMessage().sendmessage(target,
+                        format(true, "message.gamemode")
+                                .replace("%gamemode%", target.getGameMode().name())
+                                .replace("%player%", target.getName()));
                 return;
             }
             player.setGameMode(GameMode.SURVIVAL);
@@ -75,6 +79,10 @@ public class GamemodeCommand extends BaseCommand {
                 }
                 target.setGameMode(GameMode.CREATIVE);
                 plugin.getMessage().sendmessage(sender,
+                        format(true, "message.gamemode")
+                                .replace("%gamemode%", target.getGameMode().name())
+                                .replace("%player%", target.getName()));
+                plugin.getMessage().sendmessage(target,
                         format(true, "message.gamemode")
                                 .replace("%gamemode%", target.getGameMode().name())
                                 .replace("%player%", target.getName()));
@@ -97,6 +105,10 @@ public class GamemodeCommand extends BaseCommand {
                         format(true, "message.gamemode")
                                 .replace("%gamemode%", target.getGameMode().name())
                                 .replace("%player%", target.getName()));
+                plugin.getMessage().sendmessage(target,
+                        format(true, "message.gamemode")
+                                .replace("%gamemode%", target.getGameMode().name())
+                                .replace("%player%", target.getName()));
                 return;
             }
             player.setGameMode(GameMode.SPECTATOR);
@@ -113,6 +125,10 @@ public class GamemodeCommand extends BaseCommand {
                 }
                 target.setGameMode(GameMode.ADVENTURE);
                 plugin.getMessage().sendmessage(sender,
+                        format(true, "message.gamemode")
+                                .replace("%gamemode%", target.getGameMode().name())
+                                .replace("%player%", target.getName()));
+                plugin.getMessage().sendmessage(target,
                         format(true, "message.gamemode")
                                 .replace("%gamemode%", target.getGameMode().name())
                                 .replace("%player%", target.getName()));

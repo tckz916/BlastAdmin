@@ -2,13 +2,10 @@ package com.github.tckz916.blastadmin.command;
 
 import com.github.tckz916.blastadmin.BlastAdmin;
 import com.github.tckz916.blastadmin.api.BaseCommand;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.SkullMeta;
 
 /**
  * Created by tckz916 on 2015/09/23.
@@ -52,6 +49,14 @@ public class IteminfoCommand extends BaseCommand {
         Player player = (Player) sender;
         ItemStack hand = player.getItemInHand();
 
+        String id = String.valueOf(hand.getType().getId());
+        String damage = String.valueOf(hand.getDurability());
+
+        plugin.getMessage().sendmessage(sender,
+                format(true, "message.iteminfo")
+                        .replace("%material%", hand.getType().name())
+                        .replace("%id%", id)
+                        .replace("%damage%", damage));
 
     }
 

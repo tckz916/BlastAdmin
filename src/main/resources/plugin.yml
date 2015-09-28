@@ -12,6 +12,9 @@ commands:
   gamemode:
     description: Gamemode Command
     aliases: gm
+  iteminfo:
+    description: Item Command
+    aliases: ii
   night:
     description: Time Command
   mobhead:
