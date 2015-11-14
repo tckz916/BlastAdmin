@@ -52,6 +52,7 @@ public class PrefixCommand extends BaseCommand {
         plugin.reloadConfig();
 
         ConfigurationSection prefix = plugin.getConfig().getConfigurationSection("prefix");
+
         switch (args[0]) {
             case "add":
                 if (args.length < 3) {

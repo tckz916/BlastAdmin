@@ -2,8 +2,8 @@ privatemessage:
   fromformat: '&dTo [&r%player%&d]: &d%message%'
   toformat: '&d[&r%player%&d] whispers: &d%message%'
 messageformat: '<%player%> %message%'
-joinmessage: '&e%player% joined the game'
-quitmessage: '%e%player% left the game'
+joinmessage: '%player% &ejoined the game'
+quitmessage: '%player% &eleft the game'
 spawn:
   world: 'world'
   x: '0.0'
